@@ -10,14 +10,13 @@ import org.jdom2.Element;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.XMLOutputter;
 
-public class Utils {
+public class SurfacePlot {
 
 //	public static void main(String[] args) {
 //		test();
 //	}
 
-	public static void test(ArrayList<ArrayList<Double>> list) {
-
+	public static void plot3DSurface(ArrayList<ArrayList<Double>> list) {
 		SAXBuilder builder = new SAXBuilder();
 
 		Element surface = new Element("surface");
@@ -35,19 +34,10 @@ public class Utils {
 			ArrayList<Double> l = list.get(i);
 			for (int j = 0; j < l.size(); j++) {
 				Element point = new Element("point");
-//				Element x = new Element("x");
-//				Element y = new Element("y");
-//				Element z = new Element("z");
 				surface.addContent(point);
 				point.setAttribute("x", String.valueOf(i));
 				point.setAttribute("y", String.valueOf(j));
 				point.setAttribute("z", String.valueOf(l.get(j)));
-//				point.addContent(x);
-//				point.addContent(y);
-//				point.addContent(z);
-//				x.addContent(String.valueOf(i));
-//				y.addContent(String.valueOf(j));
-//				z.addContent(String.valueOf(l.get(j)));
 			}
 
 		}
@@ -56,7 +46,6 @@ public class Utils {
 		//
 		// action1.setAttribute(path_atbt1);
 		// action1.setAttribute(class_atb1);
-
 		try {
 			File file = new File("plot.xml");
 			XMLOutputter xo = new XMLOutputter();

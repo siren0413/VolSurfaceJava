@@ -12,7 +12,7 @@ public class GenerateData {
 
 		GenerateData data = new GenerateData();
 		data.generate();
-		Utils.test(data.getList());
+		SurfacePlot.plot3DSurface(data.getList());
 
 	}
 
